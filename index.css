@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+body {
+    font-family: "Open Sans", Arial;
+    background-color: #e8eef2;
+}
+
+#headSection {
+    text-align: center;
+    background-color: #85ffc7;
+    padding: 40px 0px 40px 0px;
+}
+
+#formSectionA {
+    padding: 40px 2% 40px 2%;
+}
+
+#formSectionA p {
+    padding: 0px 1% 20px 1%;
+}
+
+#formSectionB {
+    text-align: center;
+    padding: 0px 1% 40px 1%;
+}
+
+#formSectionB p {
+    padding: 0px 1% 20px 1%;
+}
