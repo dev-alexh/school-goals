@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>School Goals </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" id="headSection">
+            <h1> School Goals: Road to A+ </h1>
+            <p> Starting school the right way! </p>
+        </div>
+
+        <form onsubmit="checkNotes()">
+            <div class="row" id="formSectionA">
+                <p> Write down the course specifics and how you are going to get that A+.
+                    Review this page again to remind yourself you want that A! </p>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="name"> Name: </label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Bob Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course"> Course: </label>
+                        <input type="text" class="form-control" name="course" id="course" placeholder="MAT344" required>
+                    </div>
+                    <div class="form-group" id="itemText">
+                        <label for="textbook"> Textbook: </label>
+                        <input type="text" class="form-control" name="textbook" id="textbook"
+                            placeholder="Math Made Sense">
+                    </div>
+                    <div class="form-group" id="itemPage">
+                        <label for="page"> Page Number: </label>
+                        <input type="number" class="form-control" name="page" id="page" placeholder="1" min="0">
+                    </div>
+                    <div class="form-group" id="removeItem">
+                        <label for="remove"> Click the button below to remove the Textbook and Page Number fields if not
+                            needed </label>
+                        <button type="button" class="btn btn-default" id="remove" onclick="removeFields()">
+                            Remove</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof"> Professor </label>
+                        <input type="text" class="form-control" name="prof" id="prof" placeholder="Dr. Bobby Bob"
+                            required>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <label for="notes"> Notes </label>
+                        <textarea type="text" class="form-control" name="notes" id="notes" rows="21"
+                            placeholder="TYPE YOUR NOTES HERE" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="formSectionB">
+                <p> Remember to look back at your goals! Go get that A! </p>
+                <button type="submit" class="btn btn-default" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
