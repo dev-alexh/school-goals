@@ -34,77 +34,48 @@ function removeFields() {
 
 //validate the fields
 function checkNotes() {
-    if (removed) {
-        let name = document.getElementById("name").value;
-        let course = document.getElementById("course").value;
-        let prof = document.getElementById("prof").value;
-        let notes = document.getElementById("notes").value;
+    var errString = "";
+    var name = document.getElementById("name").value;
+    var course = document.getElementById("course").value;
+    var prof = document.getElementById("prof").value;
+    var notes = document.getElementById("notes").value;
+    if (!removed) {
+        storeInfo.textbook = document.getElementById("textbook").value;
+        storeInfo.page = document.getElementById("page").value;
+    }
 
-        if (!name.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
-            alert("Please check your name again!");
-            return;
-        }
+    if (!name.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
+        name = '';
+        errString += "Please check your name again!\n";
+    }
 
-        if (!course.match(/^[A-Z]{3}[0-9]{3}$/gm)) {
-            alert("Please enter a valid course!");
-            return;
-        }
+    if (!course.match(/^[A-Z]{3}[0-9]{3}$/gm)) {
+        course = '';
+        errString += "Please enter a valid course!\n";
+    }
 
-        if (!prof.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
-            alert("Please check your professor's name again!");
-            return;
-        }
+    if (!prof.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
+        prof = '';
+        errString += "Please check your professor's name again!";
+    }
 
-        storeBasicGoals(name, course, prof, notes);
+    if (errString != "") {
+        alert(errString);
     }
 
     else {
-        let name = document.getElementById("name").value;
-        let course = document.getElementById("course").value;
-        let textbook = document.getElementById("textbook").value;
-        let page = document.getElementById("page").value;
-        let prof = document.getElementById("prof").value;
-        let notes = document.getElementById("notes").value;
-
-        if (!name.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
-            alert("Please check your name again!");
-            return;
-        }
-
-        if (!course.match(/^[A-Z]{3}[0-9]{3}$/gm)) {
-            alert("Please enter a valid course!");
-            return;
-        }
-
-        if (!prof.match(/^[A-Za-z][A-Za-z'.-]+(\s[A-Za-z][A-Za-z'.-]+)*$/gm)) {
-            alert("Please check your professor's name again!");
-            return;
-        }
-
-        storeFullGoals(name, course, textbook, page, prof, notes);
+        alert("Success! Go get that A!");
     }
+
+    storeGoals(name, course, prof, notes);
 }
 
 //store basic goals
-function storeBasicGoals(name, course, prof, notes) {
+function storeGoals(name, course, prof, notes) {
     storeInfo.name = name;
     storeInfo.course = course;
     storeInfo.prof = prof;
     storeInfo.notes = notes;
 
     localStorage.setItem('goals', JSON.stringify(storeInfo));
-    alert("Success!");
-}
-
-//store full goals
-function storeFullGoals(name, course, textbook, page, prof, notes) {
-    storeInfo.name = name;
-    storeInfo.course = course;
-    storeInfo.textbook = textbook;
-    storeInfo.page = page;
-    storeInfo.prof = prof;
-    storeInfo.notes = notes;
-
-    localStorage.setItem('goals', JSON.stringify(storeInfo));
-    alert("Success!");
 }
